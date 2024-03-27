@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alphabet Learning System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .button {
+            display: inline-block;
+            margin: 10px;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            background-color: #fff;
+            color: #333;
+            text-decoration: none;
+            background-image: url('button-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .button:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .button img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .button img:first-child {
+            z-index: 1;
+        }
+
+        .button span {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="button">
+            <!-- <img src="musical-note.jpg" alt="Musical Note"> -->
+            <span>Sing the Alphabet</span>
+        </a>
+        <a href="draw-abc-1.html" class="button">
+            <!-- <img src="crayon.jpg" alt="Crayon"> -->
+            <span>Draw the Letters</span>
+        </a>
+        <a href="memorygame.html" class="button">
+            <!-- <img src="crayon.jpg" alt="Crayon"> -->
+            <span>Memory Game</span>
+        </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drawing Page</title>
+  <link rel="stylesheet" href="draw-abc-1.css">
+</head>
+<body>
+  <!-- <header>
+    <div class="logo">Your Logo</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Profile</a></li>
+      </ul>
+    </nav>
+  </header> -->
+  
+  <div class="container">
+    <aside class="sidebar">
+      <h2>COLOR YOUR ALPHABETS</h2>
+      <div class="brush-options">
+        <label for="brush-size">Brush Size:</label>
+        <input type="range" id="brush-size" min="1" max="20" value="5">
+        
+        <label for="brush-type">Brush Type:</label>
+        <select id="brush-type">
+          <option value="square">Square</option>
+          <option value="circle">Circle</option>
+        </select>
+      </div>
+      
+      <div class="color-options">
+        <label for="color-picker">Select Color:</label>
+        <input type="color" id="color-picker">
+      </div>
+    </aside>
+    
+    <!-- <main class="drawing-board" id = "drawing-board">
+      <canvas id="canvas" width="800" height="600"></canvas>
+    </main> -->
+    <main class="drawing-board" id="drawing-board">
+      <canvas id="canvas" width="800" height="600"></canvas>
+      <button id="clearButton">Clear</button>
+  </main>
+  
+    <aside class="sidebar">
+      <h2>Alphabets</h2>
+      <ul class="alphabet-list">
+        <li data-alphabet="A">A</li>
+    <li data-alphabet="B">B</li>
+    <li data-alphabet="C">C</li>
+    <li data-alphabet="D">D</li>
+    <li data-alphabet="E">E</li>
+    <li data-alphabet="F">F</li>
+    <li data-alphabet="G">G</li>
+    <li data-alphabet="H">H</li>
+    <li data-alphabet="I">I</li>
+    <li data-alphabet="J">J</li>
+    <li data-alphabet="K">K</li>
+    <!-- <li data-alphabet="L">L</li>
+    <li data-alphabet="M">M</li>
+    <li data-alphabet="N">N</li>
+    <li data-alphabet="O">O</li>
+    <li data-alphabet="P">P</li>
+    <li data-alphabet="Q">Q</li>
+    <li data-alphabet="R">R</li>
+    <li data-alphabet="S">S</li>
+    <li data-alphabet="T">T</li>
+    <li data-alphabet="U">U</li>
+    <li data-alphabet="V">V</li>
+    <li data-alphabet="W">W</li>
+    <li data-alphabet="X">X</li>
+    <li data-alphabet="Y">Y</li>
+    <li data-alphabet="Z">Z</li> -->
+      </ul>
+    </aside>
+  </div>
+
+  <script src="draw-abc-1.js"></script>
+</body>
+</html>

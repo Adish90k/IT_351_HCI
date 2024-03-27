@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memory Watch Game</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-image: url('background.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container {
+        margin-top: 50px;
+    }
+    .box {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background-color: rgb(49, 47, 47);
+        margin: 10px;
+        cursor: pointer;
+        position: relative;
+    }
+    .box-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 24px;
+        opacity: 0;
+        transition: opacity 0.5s;
+    }
+    .box.open .box-content {
+        opacity: 1;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="box" onclick="revealLetter('A')">
+        <div class="box-content">A</div>
+    </div>
+    <div class="box" onclick="revealLetter('B')">
+        <div class="box-content">B</div>
+    </div>
+    <div class="box" onclick="revealLetter('A')">
+        <div class="box-content">A</div>
+    </div>
+    <div class="box" onclick="revealLetter('B')">
+        <div class="box-content">B</div>
+    </div>
+</div>
+<script>
+    let firstClicked = null;
+    let secondClicked = null;
+
+    function revealLetter(letter) {
+        const clickedBox = event.currentTarget;
+        if (firstClicked === null) {
+            firstClicked = letter;
+            clickedBox.classList.add('open');
+        } else if (secondClicked === null) {
+            secondClicked = letter;
+            clickedBox.classList.add('open');
+            setTimeout(() => {
+                if (firstClicked === secondClicked) {
+                    alert('Match found!');
+                    firstClicked = null;
+                    secondClicked = null;
+                } else {
+                    document.querySelectorAll('.box').forEach(box => {
+                        box.classList.remove('open');
+                    });
+                    firstClicked = null;
+                    secondClicked = null;
+                }
+            }, 1000);
+        }
+    }
+</script>
+</body>
+</html>
