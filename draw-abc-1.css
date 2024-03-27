@@ -116,8 +116,69 @@ canvas {
   background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
   border-radius: 5px;
   text-align: center;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
 .alphabet-list li:hover {
   background-color: #eee; /* Lighter gray on hover */
+}
+
+.mainbtncontainer{
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.done-button{
+  display: block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: linear-gradient(to bottom, #4CAF50, #2E8B57); /* Gradient background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  transition: background-color 0.3s;
+}
+
+@keyframes bounceAnimation {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-20px); }
+  50% { transform: translateY(0); }
+  75% { transform: translateY(-10px); }
+}
+
+.completed {
+  animation: bounceAnimation 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.alphabet-list li {
+  transition: background-color 0.5s ease-in-out;
+}
+
+/* .drawing-board{
+  background-color: red;
+} */
+
+#clearProgressButton{
+  display: block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: linear-gradient(to bottom, #4CAF50, #2E8B57); /* Gradient background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  transition: background-color 0.3s;
 }
