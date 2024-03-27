@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Memory Watch Game</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -42,6 +43,35 @@
     .box.open .box-content {
         opacity: 1;
     }
+    .bgcolorChange{
+        background-color: rgb(135, 253, 95); 
+    }
+#widget{
+  display: none;
+  position: fixed;
+  top: 20%;
+  left: 41.7%;
+  transform: translate(-65%, -50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999; /* Ensure the widget is above other content */
+}
+
+#widget{
+  text-align: center;
+}
+
+#widget h2 {
+  font-size: 24px;
+  color: #FF5733; /* Adjust color as needed */
+}
+
+#widget p {
+  font-size: 18px;
+  color: #333; /* Adjust color as needed */
+}
 </style>
 </head>
 <body>
@@ -58,34 +88,62 @@
     <div class="box" onclick="revealLetter('B')">
         <div class="box-content">B</div>
     </div>
+
+    <div class="box" onclick="revealLetter('C')">
+        <div class="box-content">C</div>
+    </div>
+    <div class="box" onclick="revealLetter('D')">
+        <div class="box-content">D</div>
+    </div>
+    <div class="box" onclick="revealLetter('D')">
+        <div class="box-content">D</div>
+    </div>
+    <div class="box" onclick="revealLetter('C')">
+        <div class="box-content">C</div>
+    </div>
 </div>
+<div id="widget">
+    <h2>Congratulations!</h2>
+    <p>You've found a match!</p>
+  </div>
 <script>
     let firstClicked = null;
     let secondClicked = null;
-
     function revealLetter(letter) {
-        const clickedBox = event.currentTarget;
-        if (firstClicked === null) {
-            firstClicked = letter;
-            clickedBox.classList.add('open');
-        } else if (secondClicked === null) {
-            secondClicked = letter;
-            clickedBox.classList.add('open');
-            setTimeout(() => {
-                if (firstClicked === secondClicked) {
-                    alert('Match found!');
-                    firstClicked = null;
-                    secondClicked = null;
-                } else {
-                    document.querySelectorAll('.box').forEach(box => {
-                        box.classList.remove('open');
-                    });
-                    firstClicked = null;
-                    secondClicked = null;
-                }
-            }, 1000);
-        }
+    const clickedBox = event.currentTarget;
+    if (firstClicked === null) {
+        firstClicked = letter;
+        clickedBox.classList.add('open');
+    } else if (secondClicked === null) {
+        secondClicked = letter;
+        clickedBox.classList.add('open');
+        setTimeout(() => {
+            if (firstClicked === secondClicked) {
+                // Show the widget when a match is found
+                const widget = document.getElementById('widget');
+                widget.style.display = 'block';
+                widget.classList.add('animate__animated', 'animate__bounceIn'); // Add animation
+                setTimeout(() => {
+                    widget.style.display = 'none'; // Hide the widget after 2 seconds
+                }, 2000);
+
+                // Add animation class to the matched boxes
+                document.querySelectorAll('.open').forEach(box => {
+                    box.classList.add('animate__animated', 'animate__rubberBand','bgcolorChange');
+                });
+                firstClicked = null;
+                secondClicked = null;
+            } else {
+                document.querySelectorAll('.box').forEach(box => {
+                    box.classList.remove('open','bgcolorChange','animate__animated','animate__rubberBand');
+                });
+                firstClicked = null;
+                secondClicked = null;
+            }
+        }, 1000);
     }
+}
+
 </script>
 </body>
 </html>
